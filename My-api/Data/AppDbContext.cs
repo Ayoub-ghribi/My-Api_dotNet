@@ -13,6 +13,8 @@ namespace My_api.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> products { get; set; }
         public DbSet<Cart> carts { get; set; }
+        public DbSet<ImgAnimation> imgAnimations { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

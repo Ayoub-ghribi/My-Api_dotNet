@@ -32,7 +32,16 @@ namespace My_api.Controllers
         public async Task<ActionResult<Product>> GetProducts()
         {
 
-            var product = await _context.products.ToListAsync();
+            var product = await _context.products.Select(p => new ProductViewModel
+            {
+                CategoryId = p.CategoryId,
+                Name = p.Name,
+                Desc = p.Desc,
+                Date = p.Date,
+                Price = p.Price,
+                Image = "https://localhost:7196/images/"+p.Image
+
+            }).ToListAsync();
 
            
                 return Ok(product);

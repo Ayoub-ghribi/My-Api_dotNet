@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using My_api.Data;
 
@@ -11,9 +12,11 @@ using My_api.Data;
 namespace My_api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241214134039_appUser")]
+    partial class appUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,15 +54,15 @@ namespace My_api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "622a4d9e-0f0b-4ecd-a9ce-25f21dc4220a",
-                            ConcurrencyStamp = "952f03c0-bae4-4745-ae97-8e22d74acd71",
+                            Id = "00179a8d-31dc-473d-8c09-454c1d3ddca8",
+                            ConcurrencyStamp = "e6567917-e4e9-4ab6-8614-a289b6cb04c6",
                             Name = "User",
                             NormalizedName = "user"
                         },
                         new
                         {
-                            Id = "5b1e768e-f9d8-4409-b69e-c6a3f99f2142",
-                            ConcurrencyStamp = "6bd8d3d8-ee65-44a7-a5d8-4982b5ee3134",
+                            Id = "ff0c80ef-7931-4aa4-ae5d-08975bf2186f",
+                            ConcurrencyStamp = "75065338-dd7e-4df1-8d14-33c98ab2c49c",
                             Name = "Admin",
                             NormalizedName = "admin"
                         });
@@ -297,23 +300,6 @@ namespace My_api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("My_api.Models.ImgAnimation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Imqge")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("imgAnimations");
                 });
 
             modelBuilder.Entity("My_api.Models.Product", b =>
